@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
+import './user.css'
 const User = () => {
   const[user,setUser]=useState([]);
   useEffect(()=>{
@@ -19,10 +20,10 @@ const User = () => {
     .catch(err=>{console.log(err)})
   }
   return (
-    <div>
+    <div className="user-container">
       <h1>User</h1>
       <Link to="/create">Create User</Link>
-      <table>
+      <table className="user-table">
         <tr>
           <th>Name</th>
           <th>Email</th>
@@ -36,7 +37,7 @@ const User = () => {
             <td>{users.email}</td>
             <td>{users.address}</td>
             <td>
-              <Link to={`/update/${users._id}`}>update</Link>
+              <Link to={`/update/${users._id}`} className="action-link">update</Link>
               <button onClick={(e)=>deleteUser(users._id)}>delete</button>
             </td>
           </tr>

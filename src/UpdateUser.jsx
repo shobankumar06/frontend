@@ -17,21 +17,31 @@ const updateUser=(e)=>{
   .catch(err=>{console.log(err)})
 }
   return (
-    <div>
-      <form onSubmit={updateUser}>
+    <div className='page-container'>
+      <div className='form-container'>
+      <h1>Update User</h1>
+      <form onSubmit={updateUser} className="form">
+      <div className="form-group">
         <label>Name</label>
         <input type="text" value={name} onChange={(e)=>setName(e.target.value)}></input>
         <br></br>
+        </div>
 
+        <div className="form-group">
         <label>Email</label>
         <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}></input>
         <br></br>
+        </div>
 
+        <div className="form-group">
         <label>Address</label>
         <input type="text" value={address} onChange={(e)=>setAddress(e.target.value)}></input>
         <br></br>
-        <button>update</button>
+        </div>
+
+        <button className="update-button">update</button>
       </form>
+    </div>
     </div>
   )
 }
